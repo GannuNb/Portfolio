@@ -1,0 +1,105 @@
+.projects-section {
+    background-color: #0d0d0d;
+    color: #e6e6e6;
+    padding-top: 3rem;  /* reduced top space */
+    padding-bottom: 4rem;
+    min-height: 100vh;
+  }
+  
+  .heading-glow {
+    color: #ff66c4;
+    font-weight: bold;
+    font-size: 2.8rem;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(255, 102, 196, 0.6);
+    margin-top: 0; /* remove top margin */
+  }
+  
+  .section-label {
+    font-size: 1.5rem;
+    margin: 1rem 0 2rem;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  .projects-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+  
+  .project-circle {
+    background: linear-gradient(to bottom right, #1a1a1a, #292929);
+    color: #fff;
+    border-radius: 50%;
+    width: 280px;
+    height: 280px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 1px solid #2c2c2c;
+  }
+  
+  .project-circle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px #ff66c4;
+  }
+  
+  .project-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ff66c4;
+    margin-bottom: 0.7rem;
+  }
+  
+  .project-desc {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    padding: 0 10px;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .project-circle {
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+    }
+  }
+
+  /* Animation for section labels */
+.section-label {
+    font-size: 1.5rem;
+    margin: 1rem 0 2rem;
+    font-weight: 600;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  .section-label:nth-of-type(2) {
+    animation-delay: 0.3s; /* delay for Academic Projects */
+  }
+  
+  /* Keyframes for fade-in-up animation */
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .project-circle {
+  text-decoration: none; /* REMOVE UNDERLINE */
+
+}
+
+.project-circle:hover {
+
+  text-decoration: none; /* just in case */
+}

@@ -1,0 +1,179 @@
+/* === Base Container Styling === */
+.about-container {
+  background-color: #0d0d0d; /* Deep dark background */
+  color: #e6e6e6;
+  padding: 3rem 1rem;
+}
+
+/* === Card Styling === */
+.about-card {
+  background-color: transparent;
+  border: none;
+  border-radius: 1rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem; /* Added spacing inside card */
+  box-shadow: 0 0 20px rgba(255, 102, 196, 0.15); /* Soft glow effect */
+}
+
+/* === Text Section === */
+.about-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  padding-right: 2rem; /* Increased spacing from icon section */
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ff66c4;
+  margin-bottom: 1.5rem;
+}
+
+.about-text strong {
+  color: #ff66c4;
+}
+
+.animated-text {
+  animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Tech Stack Icons === */
+.tech-icons {
+  padding-top: 1rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.tech-icon {
+  font-size: 2.4rem;
+  margin: 0.6rem 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tech-icon:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(255, 102, 196, 0.4);
+}
+
+/* === Colored Tech Icons === */
+.react {
+  color: #61dafb;
+}
+.node {
+  color: #68a063;
+}
+.mongo {
+  color: #4db33d;
+}
+.html {
+  color: #e34c26;
+}
+.css {
+  color: #264de4;
+}
+.js {
+  color: #f0db4f;
+}
+.figma {
+  color: #a259ff;
+}
+.github {
+  color: #ffffff;
+}
+.selenium {
+  color: #43b02a;
+}
+
+/* === Toggle Button Styling === */
+.toggle-btn {
+  border-radius: 30px;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  border: 1px solid #ff66c4;
+  color: #ff66c4;
+  background-color: transparent;
+}
+
+.toggle-btn:hover,
+.toggle-btn:focus,
+.toggle-btn.active {
+  background-color: #ff66c4;
+  color: #fff;
+  border-color: #ff66c4;
+}
+
+/* === Toggle Section Content === */
+.toggle-content {
+  background-color: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 0.8rem;
+  margin-top: 1rem;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.toggle-content h4 {
+  color: #ff66c4;
+  margin-bottom: 1rem;
+}
+
+.toggle-content h6 {
+  margin-top: 1.2rem;
+  color: #f3b6da;
+}
+
+.toggle-content p,
+.toggle-content li {
+  margin: 0.2rem 0;
+  line-height: 1.6;
+}
+
+/* === Responsive Styling === */
+@media (max-width: 768px) {
+  .tech-icons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .tech-icon {
+    margin: 0.5rem 1rem;
+  }
+
+  .about-text {
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .toggle-btn {
+    margin-top: 0.8rem;
+  }
+
+  .toggle-content {
+    padding: 1rem;
+  }
+}
