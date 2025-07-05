@@ -15,16 +15,17 @@
     align-items: center;
   }
   
-  /* Heading */
-  .gradient-text {
-    font-size: 3rem;
-    font-weight: bold;
-    background: linear-gradient(90deg, #ff4a9c, #a75aff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: fadeInDown 1s ease-in-out;
-  }
-  
+/* Heading */
+.gradient-text {
+  font-size: 3rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff4a9c, #a75aff);
+  background-clip: text;                /* Standard (for compatibility warning) */
+  -webkit-background-clip: text;        /* WebKit (for actual effect) */
+  -webkit-text-fill-color: transparent; /* Makes text transparent to reveal gradient */
+  animation: fadeInDown 1s ease-in-out;
+}
+
   /* Intro Text */
   .intro-text {
     font-size: 1.2rem;

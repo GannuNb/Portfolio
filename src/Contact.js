@@ -42,13 +42,13 @@ const Contact = () => {
       </form>
 
       <div className="contact-icons">
-        <a href="mailto:youremail@example.com" target="_blank" rel="noopener noreferrer">
+        <a href="mailto:nbganesh1818@gmail.com" target="_blank" rel="noopener noreferrer">
           <FaEnvelope />
         </a>
-        <a href="https://github.com/yourgithub" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/GannuNb" target="_blank" rel="noopener noreferrer">
           <FaGithub />
         </a>
-        <a href="https://linkedin.com/in/yourlinkedin" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/ganesh-nallabapineni-05113826b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer">
           <FaLinkedin />
         </a>
       </div>
