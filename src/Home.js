@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
-import ganeshImage from "./images/GANESH.png";
+import ganeshImage from "./images/Group 18.png";
 import About from "./About"; // Importing About section
 
 const Home = () => {
