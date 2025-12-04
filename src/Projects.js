@@ -6,7 +6,7 @@ const projects = [
   {
     title: "RECYCLING MACHINERY PLATFORM",
     description:
-      "Created the company website for Vikah Ecotech, providing an interactive, user‑friendly interface that helps clients explore and choose recycling solutions.",
+      "Created the company website for Vikah Ecotech, providing an interactive, user-friendly interface that helps clients explore and choose recycling solutions.",
     link: "https://www.vikahecotech.com/",
   },
   {
@@ -30,7 +30,7 @@ const projects = [
   {
     title: "Venkata Siva Sai Industries – Rubber Crumb & Granules",
     description:
-      "Site highlights VSSI’s production of rubber crumb and EPDM granules, with ISO‑compliant manufacturing in Telangana. Focused on quality control and PAN‑India & export markets.",
+      "Site highlights VSSI’s production of rubber crumb and EPDM granules, with ISO-compliant manufacturing in Telangana. Focused on quality control and PAN-India & export markets.",
     link: "https://vssi.in/",
   },
   {
@@ -45,53 +45,91 @@ const projects = [
       "Dedicated site for Vikahrubbers offering custom rubber manufacturing—products, capabilities, contact info—clean design and easy navigation.",
     link: "https://vikahrubbers.com/",
   },
-];
-
-const academicProjects = [
+  // Academic Projects (kept in the same array but will be shown separately)
   {
     title: "Diabetes Prediction",
     description:
       "Python ML project to predict diabetes using health data, aimed at early diagnosis and prevention.",
+    link: "#",
   },
   {
     title: "Exam Cell System",
     description:
-      "SQL‑powered system for managing internal student academic performance and reporting efficiently.",
+      "SQL-powered system for managing internal student academic performance and reporting efficiently.",
+    link: "#",
   },
 ];
 
 const Projects = () => {
+  // keep original list intact — separate academic projects (last two)
+  const mainProjects = projects.slice(0, projects.length - 2);
+  const academicProjects = projects.slice(projects.length - 2);
+
   return (
     <section className="projects-section">
-      <Container>
+      <Container fluid="lg">
         <h2 className="text-center heading-glow mb-5">Projects</h2>
+
         <div className="projects-grid">
-          {projects.map((project, index) => (
-            <div key={index} className="project-card shadow-lg">
-              <h4 className="project-title">{project.title}</h4>
-              <p className="project-desc">{project.description}</p>
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-button"
-              >
-                Visit Site
-              </a>
-            </div>
+          {mainProjects.map((project, index) => (
+            <article
+              key={index}
+              className="project-card"
+              aria-labelledby={`p-title-${index}`}
+            >
+              <div className="project-card-inner">
+                <h3 id={`p-title-${index}`} className="project-title">
+                  {project.title}
+                </h3>
+                <p className="project-desc">{project.description}</p>
+                <div className="project-actions">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-button"
+                  >
+                    Visit Site
+                  </a>
+                </div>
+              </div>
+            </article>
           ))}
         </div>
 
-        {/* Academic Projects */}
-        <h2 className="text-center heading-glow mt-5 mb-4">Academic Projects</h2>
-        <div className="projects-grid">
-          {academicProjects.map((project, index) => (
-            <div key={index} className="project-card shadow-lg">
-              <h4 className="project-title">{project.title}</h4>
-              <p className="project-desc">{project.description}</p>
-            </div>
-          ))}
-        </div>
+        {/* Academic projects section — separated and styled slightly smaller */}
+        <section className="academic-section">
+          <h3 className="academic-heading">Academic Projects</h3>
+          <div className="academic-grid">
+            {academicProjects.map((project, idx) => {
+              const key = mainProjects.length + idx;
+              return (
+                <article
+                  key={key}
+                  className="project-card academic-card"
+                  aria-labelledby={`academic-title-${idx}`}
+                >
+                  <div className="project-card-inner">
+                    <h4 id={`academic-title-${idx}`} className="project-title">
+                      {project.title}
+                    </h4>
+                    <p className="project-desc">{project.description}</p>
+                    <div className="project-actions">
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-button"
+                      >
+                        View
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </section>
       </Container>
     </section>
   );
