@@ -204,7 +204,16 @@
 .projectTitle { font-weight: 800; }
 .projectDesc { margin-top: 4px; color: #36454f;
 text-align: justify; }
+.projectTitle a {
+  color: #000 !important;
+  text-decoration: none !important;
+}
 
+/* Optional: change hover color if needed */
+.projectTitle a:hover {
+  color: #333 !important;
+  text-decoration: underline;
+}
 /* right column */
 .rightCol {
   display: flex;
@@ -252,3 +261,4 @@ text-align: justify;
   .jobDate { flex: 0 0 160px; }
   .contactRow { overflow-x: scroll; -webkit-overflow-scrolling: touch; }
 }
+
