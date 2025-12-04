@@ -22,7 +22,7 @@ const About = () => {
                 <p className="animated-text">
                   I'm constantly learning and exploring new technologies, with a
                   strong focus on delivering value through user-centered design
-                  and functional development. Currently pursuing a B.Tech in
+                  and functional development. Completed  B.Tech in
                   Computer Science at <strong>IIIT RGUKT RK Valley</strong>.
                 </p>
 

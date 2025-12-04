@@ -8,6 +8,7 @@ import Contact from "./Contact";
 import Footer from "./Footer";
 import Experience from "./Experience";
 import Skills from "./Skills";
+import Resume from "./Resume";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/experience" element={<Experience />} />
         <Route path="/skills" element={<Skills />} />
+        <Route path="/resume" element={<Resume/>} />
 
       </Routes>
       <Footer />

@@ -1,0 +1,254 @@
+/* Resume.module.css - styles for resume preview and PDF fidelity */
+.container {
+  padding: 18px;
+  background: #f4f7fb;
+  min-height: 100vh;
+  font-family: "Georgia", Cambria, "Times New Roman", serif;
+  color: #10243a;
+}
+
+/* top bar controls */
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.previewTitle {
+  margin: 0;
+  font-size: 18px;
+  color: #0b2545;
+}
+.controls {
+  display: flex;
+  gap: 8px;
+}
+.primaryBtn {
+  background: linear-gradient(180deg,#0b63d6,#074bb5);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.secondaryBtn {
+  background: transparent;
+  border: 1px solid rgba(11,99,214,0.18);
+  color: #0b63d6;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* preview wrapper to center card */
+.previewWrap {
+  display: flex;
+  justify-content: center;
+}
+
+/* card that will be captured by html2canvas */
+.resumeCard {
+  width: 100%;
+  max-width: 980px;
+  background: #fff;
+  padding: 36px 40px 30px 48px;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(13,25,41,0.06);
+}
+
+/* header */
+.header {
+  border-bottom: 1px solid #e9f0fb;
+  padding-bottom: 12px;
+}
+.nameSection {
+  display: block;
+}
+.nameRow {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+.firstName {
+  font-size: 44px;
+  font-weight: 800;
+  color: #0b63d6;
+  line-height: 1;
+}
+.lastName {
+  font-size: 28px;
+  font-weight: 700;
+  color: #214556;
+  margin-top: 6px;
+}
+.title {
+  margin-top: 8px;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+/* CONTACT ROW - single line, no dots; overflow scroll if too long on small screens */
+.contactRow {
+  margin-top: 12px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  white-space: nowrap;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+.contactItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #f5f9ff;
+  border: 1px solid #edf6ff;
+  color: #10243a;
+  text-decoration: none;
+  font-size: 13px;
+}
+.contactItem:hover { box-shadow: 0 3px 10px rgba(11,99,214,0.06); }
+.portfolioLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #f5f9ff;
+  border: 1px solid #edf6ff;
+  color: #0b63d6;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* icons */
+.icon, .portfolioIcon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Body layout */
+.body {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 28px;
+  margin-top: 18px;
+  align-items: start;
+}
+
+/* left column */
+.leftCol {
+  padding-right: 8px;
+}
+.sectionTitle {
+  color: #0b63d6;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+/* job block */
+.job {
+  margin-bottom: 18px;
+}
+.jobHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  white-space: nowrap; /* keep company+date single line */
+}
+.jobCompanyWrap {
+  min-width: 0;
+}
+.jobCompany {
+  font-weight: 800;
+  font-size: 13px;
+  color: #0b2545;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.jobDate {
+  font-size: 11px;
+  color: #9aa6b6;
+  text-align: right;
+  flex: 0 0 220px; /* keep date in a consistent right space */
+}
+.jobRole {
+  margin-top: 6px;
+  font-weight: 700;
+  color: #3b4750;
+  font-size: 12px;
+}
+.jobBullets {
+  margin-top: 8px;
+  padding-left: 18px;
+  line-height: 1.45;
+  text-align: justify;
+}
+.jobBullets li {
+  margin-bottom: 8px;
+}
+
+/* Projects */
+.project {
+  margin-bottom: 12px;
+}
+.projectTitle { font-weight: 800; }
+.projectDesc { margin-top: 4px; color: #36454f;
+text-align: justify; }
+
+/* right column */
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.box {
+  background: #fbfdff;
+  border: 1px solid #e8f5ff;
+  padding: 12px;
+  border-radius: 8px;
+}
+.boxTitle {
+  color: #0b63d6;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+.kv { margin-bottom: 8px;text-align: justify; }
+.kKey { font-weight: 700; }
+.kVal { margin-top: 4px; }
+
+/* education */
+.eduItem { margin-bottom: 8px; }
+.eduName { font-weight: 800; }
+.eduMeta { margin-top: 4px; }
+
+/* about */
+.about { line-height: 1.45; 
+text-align: justify;
+}
+
+/* footer note */
+.footer {
+  margin-top: 18px;
+  color: #95a6bb;
+  font-size: 11px;
+  text-align: center;
+}
+
+/* small screens */
+@media (max-width: 880px) {
+  .body { grid-template-columns: 1fr; }
+  .jobDate { flex: 0 0 160px; }
+  .contactRow { overflow-x: scroll; -webkit-overflow-scrolling: touch; }
+}

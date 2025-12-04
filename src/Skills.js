@@ -26,7 +26,7 @@ const Skills = () => {
                 <p className="animated-text">
                   I'm constantly learning and exploring new technologies, with a
                   strong focus on delivering value through user-centered design
-                  and functional development. Currently pursuing a B.Tech in
+                  and functional development. Completed a B.Tech in
                   Computer Science at <strong>IIIT RGUKT RK Valley</strong>.
                 </p>
               </Col>
@@ -45,13 +45,13 @@ const Skills = () => {
                   <p>Testing: Selenium</p>
 
                   <h3 className="mt-3">Design</h3>
-                  <p>Figma • Canva • Adobe XD</p>
+                  <p>• Figma • Canva • Adobe XD</p>
 
                   <h3 className="mt-3">Frameworks</h3>
                   <p>Bootstrap • React.js • Node.js • jQuery</p>
 
                   <h3 className="mt-3">Tools/Platforms</h3>
-                  <p>Git • GitHub</p>
+                  <p>• Git • GitHub • Hostinger • SEO</p>
                 </div>
 
                 {/* Tech Icons */}
