@@ -122,7 +122,7 @@
   min-width: 0; /* allow shrinking in flex context */
 }
 .firstName {
-  font-size: 40px;
+  font-size: 4rem;
   font-weight: 700;
   color: var(--accent);
   letter-spacing: -0.5px;
@@ -132,7 +132,7 @@
   text-overflow: ellipsis;
 }
 .lastName {
-  font-size: 24px;
+  font-size: 3rem;
   font-weight: 600;
   color: #214556;
   margin-top: 6px;
