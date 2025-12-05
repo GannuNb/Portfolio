@@ -1,138 +1,213 @@
-/* Resume.module.css - styles for resume preview and PDF fidelity */
-.container {
-  padding: 18px;
-  background: #f4f7fb;
-  min-height: 100vh;
-  font-family: "Georgia", Cambria, "Times New Roman", serif;
-  color: #10243a;
+/* Resume.module.css — full responsive stylesheet */
+/* Desktop: icons + labels shown
+   Mobile (<=520px): hide labels and show icons only (compact)
+   Ensures anchors remain single inline-flex elements (better PDF mapping)
+*/
+
+:root{
+  --bg: #f4f7fb;
+  --card-bg: #fff;
+  --muted: #6b7280;
+  --text: #10243a;
+  --accent: #0b63d6;
+  --accent-600: #074bb5;
+  --panel: #fbfdff;
+  --border: #e8f5ff;
+  --soft-border: rgba(11,99,214,0.08);
+  --shadow: 0 10px 30px rgba(13,25,41,0.06);
+  --radius: 8px;
 }
 
-/* top bar controls */
+/* global box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* base container */
+.container {
+  padding: 18px;
+  background: var(--bg);
+  min-height: 100vh;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+               Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* topbar */
 .topBar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 14px;
+  gap: 12px;
+  flex-wrap: wrap;
 }
-.previewTitle {
-  margin: 0;
-  font-size: 18px;
-  color: #0b2545;
-}
-.controls {
-  display: flex;
-  gap: 8px;
-}
+.previewTitle { margin: 0; font-size: 18px; color: #0b2545; font-weight: 700; }
+.controls { display: flex; gap: 8px; align-items: center; }
+
+/* buttons */
 .primaryBtn {
-  background: linear-gradient(180deg,#0b63d6,#074bb5);
+  background: linear-gradient(180deg,var(--accent),var(--accent-600));
   color: #fff;
   border: none;
   padding: 8px 12px;
   border-radius: 8px;
   font-weight: 700;
   cursor: pointer;
+  font-size: 13px;
+  box-shadow: 0 6px 18px rgba(11,99,214,0.12);
 }
+.primaryBtn:disabled { opacity: 0.7; cursor: default; }
 .secondaryBtn {
   background: transparent;
-  border: 1px solid rgba(11,99,214,0.18);
-  color: #0b63d6;
+  border: 1px solid var(--soft-border);
+  color: var(--accent);
   padding: 8px 12px;
   border-radius: 8px;
   font-weight: 700;
   cursor: pointer;
+  font-size: 13px;
 }
+.secondaryBtn:disabled { opacity: 0.7; cursor: default; }
 
-/* preview wrapper to center card */
-.previewWrap {
-  display: flex;
-  justify-content: center;
-}
+/* preview wrapper */
+.previewWrap { display: flex; justify-content: center; }
 
-/* card that will be captured by html2canvas */
+/* resume card */
 .resumeCard {
   width: 100%;
   max-width: 980px;
-  background: #fff;
-  padding: 36px 40px 30px 48px;
-  border-radius: 6px;
-  box-shadow: 0 10px 30px rgba(13,25,41,0.06);
+  background: var(--card-bg);
+  padding: 34px 40px 30px 44px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(6,20,40,0.03);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* print-ready clone override (for PDF generation clone) */
+.print-ready {
+  width: 980px !important;
+  max-width: 980px !important;
+  background: var(--card-bg) !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
 }
 
 /* header */
-.header {
-  border-bottom: 1px solid #e9f0fb;
-  padding-bottom: 12px;
-}
-.nameSection {
-  display: block;
-}
+.header { border-bottom: 1px solid #e9f0fb; padding-bottom: 12px; }
+.nameSection { display: block; width: 100%; }
+
+/* name row - keep flexible and prevent overflow */
 .nameRow {
   display: flex;
   align-items: baseline;
   gap: 12px;
-}
-.firstName {
-  font-size: 44px;
-  font-weight: 800;
-  color: #0b63d6;
-  line-height: 1;
-}
-.lastName {
-  font-size: 28px;
-  font-weight: 700;
-  color: #214556;
-  margin-top: 6px;
-}
-.title {
-  margin-top: 8px;
-  color: #6b7280;
-  font-weight: 600;
+  flex-wrap: wrap;
+  width: 100%;
+  min-width: 0;
 }
 
-/* CONTACT ROW - single line, no dots; overflow scroll if too long on small screens */
+/* first & last name rules */
+.firstName,
+.lastName {
+  margin: 0;
+  line-height: 1;
+  min-width: 0; /* allow shrinking in flex context */
+}
+.firstName {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.5px;
+  flex: 0 1 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.lastName {
+  font-size: 24px;
+  font-weight: 600;
+  color: #214556;
+  margin-top: 6px;
+  flex: 1 1 auto;
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* subtitle/title */
+.title { margin-top: 8px; color: var(--muted); font-weight: 600; font-size: 13px; }
+
+/* CONTACT ROW - single line, scroll on overflow */
 .contactRow {
   margin-top: 12px;
   display: flex;
-  gap: 12px;
+  gap: 10px;
   align-items: center;
-  white-space: nowrap;
+  white-space: nowrap;       /* keep items on single line */
   overflow-x: auto;
   padding-bottom: 6px;
+  scrollbar-width: thin;
 }
-.contactItem {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 10px;
-  border-radius: 6px;
-  background: #f5f9ff;
-  border: 1px solid #edf6ff;
-  color: #10243a;
-  text-decoration: none;
-  font-size: 13px;
-}
-.contactItem:hover { box-shadow: 0 3px 10px rgba(11,99,214,0.06); }
+.contactRow::-webkit-scrollbar { height: 8px; }
+.contactRow::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.06); border-radius: 8px; }
+
+/* CONTACT ITEM - anchor (icon + label) kept as single inline-flex element.
+   This is critical so the link rect contains icon and label together for PDF link mapping.
+*/
+.contactItem,
 .portfolioLink {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 6px 10px;
   border-radius: 6px;
-  background: #f5f9ff;
-  border: 1px solid #edf6ff;
-  color: #0b63d6;
+  background: #f7fbff;
+  border: 1px solid rgba(7,75,181,0.06);
+  color: var(--text);
   text-decoration: none;
-  font-weight: 700;
   font-size: 13px;
+  font-weight: 600;
+  min-width: 0;
+  max-width: 100%;
+  white-space: nowrap;       /* prevent label wrapping within anchor */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+  flex: 0 0 auto;            /* prevent anchors from stretching vertically */
 }
 
-/* icons */
+/* icon sizing & behavior */
 .icon, .portfolioIcon {
   display: inline-block;
   vertical-align: middle;
+  line-height: 0;
+  flex: 0 0 auto;            /* icon keeps its natural size */
 }
 
-/* Body layout */
+/* contact label: show on desktop; truncate if long */
+.contactLabel {
+  display: inline-block;
+  max-width: 180px;          /* desktop max label width */
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+  flex: 0 1 auto;            /* allow truncation */
+}
+
+/* A small tweak to ensure email and very long labels don't overflow the card */
+.contactItem .contactLabel,
+.portfolioLink .contactLabel { display: inline-block; }
+
+/* Body layout (desktop) - two columns */
 .body {
   display: grid;
   grid-template-columns: 1fr 320px;
@@ -142,123 +217,193 @@
 }
 
 /* left column */
-.leftCol {
-  padding-right: 8px;
-}
+.leftCol { padding-right: 8px; }
+
+/* section title */
 .sectionTitle {
-  color: #0b63d6;
-  font-weight: 900;
+  color: var(--accent);
+  font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 11px;
   margin-bottom: 8px;
+  opacity: 0.95;
 }
 
-/* job block */
-.job {
-  margin-bottom: 18px;
-}
+/* job blocks */
+.job { margin-bottom: 18px; }
 .jobHeader {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   gap: 12px;
-  white-space: nowrap; /* keep company+date single line */
-}
-.jobCompanyWrap {
+  width: 100%;
   min-width: 0;
 }
+.jobCompanyWrap { min-width: 0; }
 .jobCompany {
-  font-weight: 800;
-  font-size: 13px;
+  font-weight: 700;
+  font-size: 14px;
   color: #0b2545;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  flex: 1 1 auto;
 }
 .jobDate {
-  font-size: 11px;
-  color: #9aa6b6;
-  text-align: right;
-  flex: 0 0 220px; /* keep date in a consistent right space */
-}
-.jobRole {
-  margin-top: 6px;
-  font-weight: 700;
-  color: #3b4750;
   font-size: 12px;
+  color: #8f9aa8;
+  text-align: right;
+  flex: 0 0 200px;
+  font-weight: 600;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
+
+/* roles & bullets */
+.jobRole { margin-top: 6px; font-weight: 600; color: #3b4750; font-size: 13px; }
 .jobBullets {
   margin-top: 8px;
   padding-left: 18px;
+  line-height: 1.5;
+  text-align: left;
+  color: #2f3a40;
+  font-size: 13px;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+.jobBullets li { margin-bottom: 8px; }
+
+/* projects */
+.project { margin-bottom: 12px; }
+.projectTitle {
+  font-weight: 700;
+  font-size: 14px;
+  color: #0b2545;
+  word-break: break-word;
+}
+.projectDesc {
+  margin-top: 6px;
+  color: #36454f;
+  text-align: left;
+  font-size: 13px;
   line-height: 1.45;
-  text-align: justify;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
-.jobBullets li {
-  margin-bottom: 8px;
-}
+.projectTitle a { color: inherit; text-decoration: none; }
 
-/* Projects */
-.project {
-  margin-bottom: 12px;
-}
-.projectTitle { font-weight: 800; }
-.projectDesc { margin-top: 4px; color: #36454f;
-text-align: justify; }
-.projectTitle a {
-  color: #000 !important;
-  text-decoration: none !important;
-}
-
-/* Optional: change hover color if needed */
-.projectTitle a:hover {
-  color: #333 !important;
-  text-decoration: underline;
-}
 /* right column */
-.rightCol {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
+.rightCol { display: flex; flex-direction: column; gap: 12px; }
 .box {
-  background: #fbfdff;
-  border: 1px solid #e8f5ff;
+  background: var(--panel);
+  border: 1px solid var(--border);
   padding: 12px;
   border-radius: 8px;
+  box-sizing: border-box;
 }
 .boxTitle {
-  color: #0b63d6;
-  font-weight: 900;
+  color: var(--accent);
+  font-weight: 800;
   text-transform: uppercase;
   margin-bottom: 8px;
-  font-size: 12px;
+  font-size: 11px;
 }
-.kv { margin-bottom: 8px;text-align: justify; }
-.kKey { font-weight: 700; }
-.kVal { margin-top: 4px; }
+.kv { margin-bottom: 8px; text-align: left; font-size: 13px; color: #2f3a40; }
+.kKey { font-weight: 700; font-size: 13px; color: #0b2545; }
+.kVal { margin-top: 4px; font-weight: 500; color: #3b4750; }
 
 /* education */
 .eduItem { margin-bottom: 8px; }
-.eduName { font-weight: 800; }
-.eduMeta { margin-top: 4px; }
+.eduName { font-weight: 700; font-size: 13px; color: #0b2545; }
+.eduMeta { margin-top: 4px; color: #5f6b77; font-size: 13px; }
 
 /* about */
-.about { line-height: 1.45; 
-text-align: justify;
+.about {
+  line-height: 1.5;
+  text-align: left;
+  color: #2f3a40;
+  font-size: 13px;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
-/* footer note */
-.footer {
-  margin-top: 18px;
-  color: #95a6bb;
-  font-size: 11px;
-  text-align: center;
-}
+/* footer */
+.footer { margin-top: 18px; color: #95a6bb; font-size: 11px; text-align: center; }
 
-/* small screens */
+/* -------------------------
+   Responsive rules (mobile)
+   -------------------------
+   <=880px: stack columns
+   <=520px: compact contact row (icons only)
+*/
 @media (max-width: 880px) {
   .body { grid-template-columns: 1fr; }
-  .jobDate { flex: 0 0 160px; }
-  .contactRow { overflow-x: scroll; -webkit-overflow-scrolling: touch; }
+  .jobDate { flex: 0 0 auto; text-align: left; }
+
+  /* stack company + date vertically to avoid overflow */
+  .jobHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .jobCompany { white-space: normal; overflow: visible; }
+  .jobDate { align-self: flex-end; color: #7f8b96; font-size: 12px; }
+
+  /* slightly smaller name sizes for medium phones */
+  .firstName { font-size: 34px; white-space: nowrap; }
+  .lastName { font-size: 20px; }
+
+  .resumeCard { padding: 20px; border-radius: 6px; }
+
+  /* ensure contact anchors don't wrap */
+  .contactItem, .portfolioLink { white-space: nowrap; max-width: 100%; }
+  .contactLabel { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  .box { padding: 10px; }
 }
 
+/* Compact mode for very small screens (icons only) */
+@media (max-width: 520px) {
+  /* hide labels, show icons only for compactness */
+  .contactLabel { display: none !important; }
+
+  /* reduce padding and radius */
+  .contactItem, .portfolioLink {
+    padding: 6px 8px;
+    border-radius: 7px;
+  }
+
+  .firstName { font-size: 30px; }
+  .lastName { font-size: 18px; }
+
+  /* reduce right column padding visually */
+  .resumeCard { padding: 18px; }
+  .box { padding: 8px; }
+}
+
+/* extra safety for very narrow devices */
+@media (max-width: 420px) {
+  .contactLabel { max-width: 90px; font-size: 12px; }
+  .jobDate { align-self: flex-start; }
+  .firstName { font-size: 28px; }
+  .lastName { font-size: 16px; }
+}
+
+/* print / PDF tweaks */
+@media print {
+  .container, .resumeCard, .print-ready {
+    background: #fff !important;
+    box-shadow: none !important;
+    color: var(--text);
+  }
+  /* make contact items simpler when printed */
+  .contactItem, .portfolioLink {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+}
