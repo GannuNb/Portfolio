@@ -225,7 +225,7 @@
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 16px;
   margin-bottom: 8px;
   opacity: 0.95;
 }
@@ -243,7 +243,7 @@
 .jobCompanyWrap { min-width: 0; }
 .jobCompany {
   font-weight: 700;
-  font-size: 14px;
+  font-size: 12px;
   color: #0b2545;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -252,7 +252,7 @@
   flex: 1 1 auto;
 }
 .jobDate {
-  font-size: 12px;
+  font-size: 10px;
   color: #8f9aa8;
   text-align: right;
   flex: 0 0 200px;
@@ -280,8 +280,8 @@
 /* projects */
 .project { margin-bottom: 12px; }
 .projectTitle {
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 14.4px;
   color: #0b2545;
   word-break: break-word;
 }
@@ -307,13 +307,13 @@
 }
 .boxTitle {
   color: var(--accent);
-  font-weight: 800;
+  font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 8px;
-  font-size: 11px;
+  font-size: 14px;
 }
 .kv { margin-bottom: 8px; text-align: left; font-size: 13px; color: #2f3a40; }
-.kKey { font-weight: 700; font-size: 13px; color: #0b2545; }
+.kKey { font-weight: 610; font-size: 13px; color: #0b2545; }
 .kVal { margin-top: 4px; font-weight: 500; color: #3b4750; }
 
 /* education */
@@ -351,7 +351,7 @@
     gap: 6px;
   }
   .jobCompany { white-space: normal; overflow: visible; }
-  .jobDate { align-self: flex-end; color: #7f8b96; font-size: 12px; }
+  .jobDate { align-self: flex-end; color: #7f8b96; font-size: 10px; }
 
   /* slightly smaller name sizes for medium phones */
   .firstName { font-size: 34px; white-space: nowrap; }

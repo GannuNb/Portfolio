@@ -126,7 +126,10 @@ export default function Resume() {
       let yOffsetCanvasPx = 0;
       let pageIndex = 0;
       while (yOffsetCanvasPx < canvasHeightPx) {
-        const sliceHeightCanvasPx = Math.min(a4HeightPx, canvasHeightPx - yOffsetCanvasPx);
+        const sliceHeightCanvasPx = Math.min(
+          a4HeightPx,
+          canvasHeightPx - yOffsetCanvasPx
+        );
 
         // create slice canvas and draw slice
         const sliceCanvas = document.createElement("canvas");
@@ -160,13 +163,23 @@ export default function Resume() {
           pdf.setPage(pageIndex + 1);
         }
 
-        pdf.addImage(dataUrl, "PNG", 0, 0, imgWidthPts, imgHeightPts, undefined, "FAST");
+        pdf.addImage(
+          dataUrl,
+          "PNG",
+          0,
+          0,
+          imgWidthPts,
+          imgHeightPts,
+          undefined,
+          "FAST"
+        );
 
         // Add link annotations that intersect this slice
         for (const entry of linkEntries) {
           // DOM px -> canvas px (clone was rendered at CANVAS_SCALE)
           const entryTopCanvasPx = entry.topDomPx * CANVAS_SCALE;
-          const entryBottomCanvasPx = (entry.topDomPx + entry.heightDomPx) * CANVAS_SCALE;
+          const entryBottomCanvasPx =
+            (entry.topDomPx + entry.heightDomPx) * CANVAS_SCALE;
           const entryLeftCanvasPx = entry.leftDomPx * CANVAS_SCALE;
           const entryWidthCanvasPx = entry.widthDomPx * CANVAS_SCALE;
           const entryHeightCanvasPx = entry.heightDomPx * CANVAS_SCALE;
@@ -175,18 +188,29 @@ export default function Resume() {
           const sliceBottomCanvasPx = yOffsetCanvasPx + sliceHeightCanvasPx;
 
           // if entry outside slice skip
-          if (entryBottomCanvasPx <= sliceTopCanvasPx || entryTopCanvasPx >= sliceBottomCanvasPx) {
+          if (
+            entryBottomCanvasPx <= sliceTopCanvasPx ||
+            entryTopCanvasPx >= sliceBottomCanvasPx
+          ) {
             continue;
           }
 
           // visible portion inside slice (canvas px)
-          const visibleTopCanvasPx = Math.max(entryTopCanvasPx, sliceTopCanvasPx);
-          const visibleBottomCanvasPx = Math.min(entryBottomCanvasPx, sliceBottomCanvasPx);
-          const visibleHeightCanvasPx = visibleBottomCanvasPx - visibleTopCanvasPx;
+          const visibleTopCanvasPx = Math.max(
+            entryTopCanvasPx,
+            sliceTopCanvasPx
+          );
+          const visibleBottomCanvasPx = Math.min(
+            entryBottomCanvasPx,
+            sliceBottomCanvasPx
+          );
+          const visibleHeightCanvasPx =
+            visibleBottomCanvasPx - visibleTopCanvasPx;
 
           // left and top within slice (canvas px)
           const leftCanvasPx = entryLeftCanvasPx;
-          const visibleTopWithinSliceCanvasPx = visibleTopCanvasPx - sliceTopCanvasPx;
+          const visibleTopWithinSliceCanvasPx =
+            visibleTopCanvasPx - sliceTopCanvasPx;
 
           // convert to PDF pts
           const pdfX = canvasPxToPdfPts(leftCanvasPx);
@@ -260,7 +284,7 @@ export default function Resume() {
                 <span className={styles.firstName}>Ganesh</span>
                 <span className={styles.lastName}>Nallabapineneni</span>
               </div>
-              <div className={styles.title}>Software Engineer</div>
+              <div className={styles.title}>Full Stack Web Developer</div>
 
               {/* contact row with data-pdf-link attributes */}
               <div className={styles.contactRow} title="Contact row">
@@ -271,7 +295,10 @@ export default function Resume() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <span className={styles.icon} dangerouslySetInnerHTML={{ __html: homeSvg }} />
+                  <span
+                    className={styles.icon}
+                    dangerouslySetInnerHTML={{ __html: homeSvg }}
+                  />
                   <span className={styles.contactLabel}>Kadiri</span>
                 </a>
 
@@ -282,7 +309,10 @@ export default function Resume() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <span className={styles.icon} dangerouslySetInnerHTML={{ __html: githubSvg }} />
+                  <span
+                    className={styles.icon}
+                    dangerouslySetInnerHTML={{ __html: githubSvg }}
+                  />
                   <span className={styles.contactLabel}>GitHub</span>
                 </a>
 
@@ -291,8 +321,13 @@ export default function Resume() {
                   href="mailto:nbganesh1818@gmail.com"
                   data-pdf-link="mail"
                 >
-                  <span className={styles.icon} dangerouslySetInnerHTML={{ __html: mailSvg }} />
-                  <span className={styles.contactLabel}>nbganesh1818@gmail.com</span>
+                  <span
+                    className={styles.icon}
+                    dangerouslySetInnerHTML={{ __html: mailSvg }}
+                  />
+                  <span className={styles.contactLabel}>
+                    nbganesh1818@gmail.com
+                  </span>
                 </a>
                 <a
                   className={styles.contactItem}
@@ -315,7 +350,10 @@ export default function Resume() {
                   href="tel:+919346481093"
                   data-pdf-link="phone"
                 >
-                  <span className={styles.icon} dangerouslySetInnerHTML={{ __html: phoneSvg }} />
+                  <span
+                    className={styles.icon}
+                    dangerouslySetInnerHTML={{ __html: phoneSvg }}
+                  />
                   <span className={styles.contactLabel}>+91 9346481093</span>
                 </a>
 
@@ -326,7 +364,10 @@ export default function Resume() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <span className={styles.portfolioIcon} dangerouslySetInnerHTML={{ __html: portfolioSvg }} />
+                  <span
+                    className={styles.portfolioIcon}
+                    dangerouslySetInnerHTML={{ __html: portfolioSvg }}
+                  />
                   Portfolio
                 </a>
               </div>
@@ -343,7 +384,7 @@ export default function Resume() {
                 role="Full Stack Developer and UI/UX Designer"
                 date="June 2024 - Present | Nagole, Hyderabad"
                 bullets={[
-                  "Developed and maintained web applications using the MERN stack, enhancing business capabilities.",
+                  "Developed and maintained 10+ high-performance web applications using the MERN stack, significantly enhancing business capabilities.",
                   "Designed intuitive user interfaces using Figma, focusing on visual aesthetics and user experience.",
                   "Collaborated with teams to create scalable features and improve overall usability.",
                   "Implemented RESTful APIs to ensure efficient data exchange between front-end and back-end.",
@@ -359,7 +400,7 @@ export default function Resume() {
                   "Designed user interfaces using Figma, creating visually appealing and user-friendly designs for web applications",
                   "Developed responsive front-end components and dynamic user interfaces with React.js, HTML, CSS, and JavaScript",
                   "Conducted Selenium testing to ensure application functionality and compatibility across multiple browsers and devices.",
-                  "Collaborated with cross-functional teams to align design and development efforts,ensuring cohesive product delivery."
+                  "Collaborated with cross-functional teams to align design and development efforts,ensuring cohesive product delivery.",
                 ]}
               />
 
@@ -394,14 +435,23 @@ export default function Resume() {
               <div className={styles.box}>
                 <h5 className={styles.boxTitle}>Skills</h5>
 
+                {/* Programming Languages */}
                 <div className={styles.kv}>
                   <div className={styles.kKey}>Programming</div>
                   <div className={styles.kVal}>
-                    HTML, CSS, JavaScript, Python, SQL, MongoDB <br />
-                    Data Structures & Algorithms
+                    HTML, CSS, JavaScript, Python
                   </div>
                 </div>
 
+                 {/* Frameworks */}
+                <div className={styles.kv}>
+                  <div className={styles.kKey}>Frameworks</div>
+                  <div className={styles.kVal}>
+                    React.js, Node.js, Express.js, Bootstrap, jQuery
+                  </div>
+                </div>
+
+                {/* Design */}
                 <div className={styles.kv}>
                   <div className={styles.kKey}>Design</div>
                   <div className={styles.kVal}>
@@ -409,28 +459,49 @@ export default function Resume() {
                   </div>
                 </div>
 
+                {/* Databases */}
                 <div className={styles.kv}>
-                  <div className={styles.kv}>
-                    <div className={styles.kKey}>Frameworks</div>
-                    <div className={styles.kVal}>
-                      Bootstrap, React.js, Node.js, jQuery
-                    </div>
-                  </div>
+                  <div className={styles.kKey}>Databases</div>
+                  <div className={styles.kVal}>MongoDB , SQL </div>
+                  
+                </div>
 
-                  <div className={styles.kv}>
-                    <div className={styles.kKey}>Libraries / Technologies</div>
-                    <div className={styles.kVal}>
-                      NumPy, Pandas, Matplotlib, Seaborn, <br />
-                      Scikit-learn, TensorFlow, Keras <br />
-                      AI, ML, DL
-                    </div>
+                {/* Data Structures & Algorithms */}
+                <div className={styles.kv}>
+                  <div className={styles.kKey}>
+                    Data Structures & Algorithms
+                  </div>
+                  <div className={styles.kVal}>
+                    Strong understanding of DSA fundamentals
                   </div>
                 </div>
 
+                
+
+               
+
+                {/* Libraries & Technologies */}
+                <div className={styles.kv}>
+                  <div className={styles.kKey}>Libraries & Technologies</div>
+                  <div className={styles.kVal}>
+                    NumPy, Pandas, Matplotlib, Seaborn, <br />
+                    Scikit-learn, TensorFlow, Keras
+                  </div>
+                </div>
+
+                {/* AI / ML / DL */}
+                <div className={styles.kv}>
+                  <div className={styles.kKey}>AI / ML / DL</div>
+                  <div className={styles.kVal}>
+                    Machine Learning, Deep Learning, Model Development
+                  </div>
+                </div>
+
+                {/* Tools / Platforms */}
                 <div className={styles.kv}>
                   <div className={styles.kKey}>Tools / Platforms</div>
                   <div className={styles.kVal}>
-                    Git, GitHub, Hostinger, SEO, Selenium
+                    Git, GitHub, Selenium, Hostinger, SEO Tools
                   </div>
                 </div>
               </div>
@@ -451,21 +522,21 @@ export default function Resume() {
                 </div>
 
                 <div className={styles.eduItem}>
-                  <div className={styles.eduName}>SSC – Govt High School Main, Pulivendula</div>
+                  <div className={styles.eduName}>
+                    SSC – Govt High School Main, Pulivendula
+                  </div>
                   <div className={styles.eduMeta}>CGPA: 9.8</div>
                 </div>
               </div>
 
               <div className={styles.box}>
                 <h5 className={styles.boxTitle}>About Me</h5>
-                <div className={styles.about}>Full Stack Developer
-                  specializing in the MERN stack,
-                  building scalable and
-                  user-friendly web applications
-                  with strong frontend, backend,
-                  and UI/UX skills. I use AI/ML
-                  when helpful and enjoy
-                  creating efficient solutions.</div>
+                <div className={styles.about}>
+                  Full Stack Developer specializing in the MERN stack, building
+                  scalable and user-friendly web applications with strong
+                  frontend, backend, and UI/UX skills. I use AI/ML when helpful
+                  and enjoy creating efficient solutions.
+                </div>
               </div>
             </aside>
           </div>
@@ -481,13 +552,17 @@ function Job({ company, role, date, bullets = [] }) {
     <div className={styles.job}>
       <div className={styles.jobHeader}>
         <div className={styles.jobCompanyWrap}>
-          <div className={styles.jobCompany} title={company}>{company}</div>
+          <div className={styles.jobCompany} title={company}>
+            {company}
+          </div>
         </div>
         <div className={styles.jobDate}>{date}</div>
       </div>
       <div className={styles.jobRole}>{role}</div>
       <ul className={styles.jobBullets}>
-        {bullets.map((b, i) => <li key={i}>{b}</li>)}
+        {bullets.map((b, i) => (
+          <li key={i}>{b}</li>
+        ))}
       </ul>
     </div>
   );
@@ -498,7 +573,9 @@ function Project({ title, desc, link }) {
     <div className={styles.project}>
       {link ? (
         <div className={styles.projectTitle}>
-          <a href={link} target="_blank" rel="noreferrer">{title}</a>
+          <a href={link} target="_blank" rel="noreferrer">
+            {title}
+          </a>
         </div>
       ) : (
         <div className={styles.projectTitle}>{title}</div>
