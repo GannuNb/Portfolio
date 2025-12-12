@@ -472,7 +472,7 @@ export default function Resume() {
                     Data Structures & Algorithms
                   </div>
                   <div className={styles.kVal}>
-                    Strong understanding of DSA fundamentals
+                    Good understanding of DSA fundamentals
                   </div>
                 </div>
 
