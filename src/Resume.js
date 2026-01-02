@@ -447,7 +447,7 @@ export default function Resume() {
                 <div className={styles.kv}>
                   <div className={styles.kKey}>Frameworks</div>
                   <div className={styles.kVal}>
-                    React.js, Node.js, Express.js, Bootstrap, jQuery
+                    React.js, Node.js, Express.js, Bootstrap,React-Native
                   </div>
                 </div>
 

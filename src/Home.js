@@ -35,6 +35,9 @@ const Home = () => {
                 <Button className="cta-btn" onClick={() => navigate("/experience")}>
                   Experience
                 </Button>
+                <Button className="cta-btn" onClick={() => navigate("/resume")}>
+                   Resume
+                </Button>
               </div>
             </Col>
 
