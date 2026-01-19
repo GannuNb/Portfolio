@@ -182,7 +182,7 @@ export default function Resume() {
             (entry.topDomPx + entry.heightDomPx) * CANVAS_SCALE;
           const entryLeftCanvasPx = entry.leftDomPx * CANVAS_SCALE;
           const entryWidthCanvasPx = entry.widthDomPx * CANVAS_SCALE;
-          const entryHeightCanvasPx = entry.heightDomPx * CANVAS_SCALE;
+          // const entryHeightCanvasPx = entry.heightDomPx * CANVAS_SCALE;
 
           const sliceTopCanvasPx = yOffsetCanvasPx;
           const sliceBottomCanvasPx = yOffsetCanvasPx + sliceHeightCanvasPx;
