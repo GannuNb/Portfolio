@@ -466,6 +466,12 @@ export default function Resume() {
                   
                 </div>
 
+                <div className={styles.kv}>
+                  <div className={styles.kKey}>Familiar With</div>
+                  <div className={styles.kVal}>TypeScript, Next.js, Tailwind CSS </div>
+                  
+                </div>
+
                 {/* Data Structures & Algorithms */}
                 <div className={styles.kv}>
                   <div className={styles.kKey}>
