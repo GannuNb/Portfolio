@@ -12,7 +12,7 @@ const experiences = [
       duration: "June 2024 – Current",
       location: "Nagole, Hyderabad",
       techStack: [<SiMongodb />, <SiExpress />, <FaReact />, <FaNodeJs />],
-      image: "https://cdn-icons-png.flaticon.com/512/906/906175.png", // Full Stack image
+      image: "https://plus.unsplash.com/premium_photo-1720287601920-ee8c503af775?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2ViJTIwZGV2ZWxvcG1lbnQlMjBzZXJ2aWNlc3xlbnwwfHwwfHx8MA%3D%3D", // Full Stack image
       points: [
         "Developed and maintained full-stack web applications using the MERN stack.",
         "Designed intuitive user interfaces with React and Figma.",

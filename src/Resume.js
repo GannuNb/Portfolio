@@ -284,7 +284,7 @@ export default function Resume() {
                 <span className={styles.firstName}>Ganesh</span>
                 <span className={styles.lastName}>Nallabapineneni</span>
               </div>
-              <div className={styles.title}>Full Stack Web Developer</div>
+              <div className={styles.title}>Full Stack Developer</div>
 
               {/* contact row with data-pdf-link attributes */}
               <div className={styles.contactRow} title="Contact row">
@@ -384,7 +384,7 @@ export default function Resume() {
                 role="Full Stack Developer and UI/UX Designer"
                 date="June 2024 - Present | Nagole, Hyderabad"
                 bullets={[
-                  "Developed and maintained 10+ high-performance web applications using the MERN stack, significantly enhancing business capabilities.",
+                  "Developed and maintained 8+ high-performance web applications using the MERN stack, significantly enhancing business capabilities.",
                   "Designed intuitive user interfaces using Figma, focusing on visual aesthetics and user experience.",
                   "Collaborated with teams to create scalable features and improve overall usability.",
                   "Implemented RESTful APIs to ensure efficient data exchange between front-end and back-end.",
@@ -394,7 +394,7 @@ export default function Resume() {
 
               <Job
                 company="MAANG TECHNOLOGIES PVT LTD"
-                role="UI/UX Designer, Frontend Developer and Selenium Testing"
+                role="UI/UX Designer, Frontend Developer and Selenium Testing | Intern"
                 date="March 2023 - March 2024 | Hyderabad"
                 bullets={[
                   "Designed user interfaces using Figma, creating visually appealing and user-friendly designs for web applications",
@@ -443,7 +443,7 @@ export default function Resume() {
                   </div>
                 </div>
 
-                 {/* Frameworks */}
+                {/* Frameworks */}
                 <div className={styles.kv}>
                   <div className={styles.kKey}>Frameworks</div>
                   <div className={styles.kVal}>
@@ -463,13 +463,13 @@ export default function Resume() {
                 <div className={styles.kv}>
                   <div className={styles.kKey}>Databases</div>
                   <div className={styles.kVal}>MongoDB , SQL </div>
-                  
+
                 </div>
 
                 <div className={styles.kv}>
                   <div className={styles.kKey}>Familiar With</div>
                   <div className={styles.kVal}>TypeScript, Next.js, Tailwind CSS </div>
-                  
+
                 </div>
 
                 {/* Data Structures & Algorithms */}
@@ -482,9 +482,9 @@ export default function Resume() {
                   </div>
                 </div>
 
-                
 
-               
+
+
 
                 {/* Libraries & Technologies */}
                 <div className={styles.kv}>
@@ -538,10 +538,10 @@ export default function Resume() {
               <div className={styles.box}>
                 <h5 className={styles.boxTitle}>About Me</h5>
                 <div className={styles.about}>
-                  Full Stack Developer specializing in the MERN stack, building
-                  scalable and user-friendly web applications with strong
-                  frontend, backend, and UI/UX skills. I use AI/ML when helpful
-                  and enjoy creating efficient solutions.
+                      Full Stack Developer specializing in the MERN stack, building scalable and user-friendly web applications with 
+                      strong frontend and backend expertise.
+                      I focus on modern web development and have experience with Next.js and React Native for dynamic, 
+                      cross-platform solutions.
                 </div>
               </div>
             </aside>

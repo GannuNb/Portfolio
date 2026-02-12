@@ -20,7 +20,7 @@ const Footer = () => {
 
         {/* Center: Copyright Text */}
         <div className="footer-center">
-          <p>&copy; 2025 Ganesh Nallabapineni</p>
+          <p>&copy; 2026 Ganesh Nallabapineni</p>
           <p>Designed by <a href="/">Ganesh Nallabapineni</a></p>
         </div>
 

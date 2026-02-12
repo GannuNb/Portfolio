@@ -1,0 +1,139 @@
+/* GLOBAL BLACK BACKGROUND */
+:global(body) {
+  background-color: #000000;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* SECTION */
+.projectsSection {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 4rem 1rem 5rem;
+  min-height: 100vh;
+}
+
+/* MAIN HEADING */
+.heading {
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 3rem;
+  color: #ff44c2;
+  text-shadow: 0 0 15px rgba(255, 68, 193, 0.415);
+  letter-spacing: 1px;
+}
+
+/* GRID */
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* CARD */
+.projectCard {
+  background: #111111;
+  border: 1px solid #1c1c1c;
+  border-radius: 16px;
+  transition: all 0.35s ease;
+  display: flex;
+}
+
+.projectCard:hover {
+  transform: translateY(-10px);
+  border-color: #ff44c2;
+  box-shadow: 0 0 30px rgba(255, 68, 194, 0.25);
+}
+
+/* CARD INNER */
+.cardInner {
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* TITLE */
+.projectTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ff44c2;
+  letter-spacing: 0.5px;
+}
+
+/* DESCRIPTION */
+.projectDesc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #cccccc;
+  margin-bottom: 1.2rem;
+  flex: 1;
+}
+
+/* BUTTON */
+.projectButton {
+  display: inline-block;
+  padding: 0.75rem;
+  text-align: center;
+  background: linear-gradient(135deg, #ff44c2, #ff2aa6);
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.projectButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 18px rgba(255, 68, 194, 0.6);
+}
+
+/* ACADEMIC SECTION */
+.academicSection {
+  margin-top: 4rem;
+}
+
+.academicHeading {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #ff44c2;
+  text-shadow: 0 0 10px rgba(255, 68, 194, 0.5);
+}
+
+.academicGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .projectsGrid,
+  .academicGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .projectsGrid,
+  .academicGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .cardInner {
+    padding: 1.2rem;
+  }
+
+  .heading {
+    font-size: 2.1rem;
+  }
+}
