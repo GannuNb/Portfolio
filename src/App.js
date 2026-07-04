@@ -9,6 +9,8 @@ import Footer from "./Footer";
 import Experience from "./Experience";
 import Skills from "./Skills";
 import Resume from "./Resume";
+import FresherResume from "./resumes/fresher/FresherResumeMern";
+import ExperiencedResume from "./resumes/experienced/ExperiencedResumeMern";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         <Route path="/experience" element={<Experience />} />
         <Route path="/skills" element={<Skills />} />
         <Route path="/resume" element={<Resume/>} />
+        <Route path="/resume/freshermern" element={<FresherResume />} />
+        <Route path="/resume/experiencedmern" element={<ExperiencedResume />} />
 
       </Routes>
       <Footer />
