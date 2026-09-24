@@ -435,7 +435,7 @@ export default function ExperiencedResumeMern() {
                 <div className={styles.kv}>
                   <div className={styles.kKey}>Programming</div>
                   <div className={styles.kVal}>
-                    HTML, CSS, JavaScript
+                    HTML, CSS, JavaScript , Python
                   </div>
                 </div>
 
@@ -493,13 +493,13 @@ export default function ExperiencedResumeMern() {
                 <div className={styles.eduItem}>
                   <div className={styles.eduName}>AP IIIT RGUKT RK VALLEY</div>
                   <div className={styles.eduMeta}>B.Tech (CSE) — 2020-2024</div>
-                  <div className={styles.eduMeta}>CGPA: 8.1</div>
+                  <div className={styles.eduMeta}>CGPA: 8.0</div>
                 </div>
 
                 <div className={styles.eduItem}>
                   <div className={styles.eduName}>PUC (M.P.C)</div>
                   <div className={styles.eduMeta}>2018-2020</div>
-                  <div className={styles.eduMeta}>CGPA: 8.6</div>
+                  <div className={styles.eduMeta}>CGPA: 8.5</div>
                 </div>
 
                 <div className={styles.eduItem}>
